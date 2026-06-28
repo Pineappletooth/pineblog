@@ -1,0 +1,63 @@
+---
+const { url, title, pubDate, tags } = Astro.props;
+const dateStr = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
+---
+<style>
+  .post-item {
+    padding: 0.3rem 0;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-date {
+    color: var(--text);
+    font-size: 0.8rem;
+    margin-right: 0.6rem;
+  }
+
+  .post-title {
+    color: var(--link);
+    font-size: 0.9rem;
+  }
+
+  .post-title:hover {
+    color: var(--accent);
+  }
+
+  .post-tags {
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
+
+  .post-tags li {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .post-tags a {
+    color: var(--pink);
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+
+  .post-tags a:hover {
+    color: var(--accent);
+  }
+</style>
+
+<li class="post-item">
+  <span class="post-date">{dateStr}</span>
+  <a href={url} class="post-title">{title}</a>
+  {tags && tags.length > 0 && (
+    <ul class="post-tags">
+      {tags.map((tag: string) => (
+        <li><a href={`/tags/${tag}`}>[{tag}]</a></li>
+      ))}
+    </ul>
+  )}
+</li>

@@ -1,0 +1,154 @@
+:root {
+  --bg: #0e0e10;
+  --surface: #1a1520;
+  --border: #3d3354;
+  --text: #f0e6f0;
+  --muted: #9a8aaa;
+  --accent: #a8d8b0;
+  --secondary: #e0b8f0;
+  --link: #c8b8e8;
+  --link-visited: #a898c8;
+  --pink: #f4a0c0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 740px;
+  padding: 1rem;
+}
+
+h1 {
+  font-family: monospace;
+  font-size: 1.3rem;
+  color: var(--accent);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--secondary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3,
+h4 {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+p {
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--secondary);
+  margin: 1rem 0;
+  position: relative;
+  text-align: center;
+  overflow: visible;
+}
+
+hr::before {
+  content: "𓂃✦｡⋆";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  padding: 0 0.4em;
+  color: var(--secondary);
+  font-size: 1.6rem;
+  letter-spacing: -0.1em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+code {
+  font-family: monospace;
+  background: var(--surface);
+  color: var(--accent);
+  padding: 0.1em 0.3em;
+  border: 1px solid var(--border);
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.8rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+li {
+  margin-bottom: 0.2rem;
+}
+
+/* prose (blog post body) */
+.prose {
+  line-height: 1.8;
+}
+
+.prose h2 {
+  color: var(--secondary);
+  padding-bottom: 0.2rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.prose ul li::marker {
+  color: var(--muted);
+}

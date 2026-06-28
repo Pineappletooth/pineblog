@@ -1,0 +1,10 @@
+---
+async function getRandomFact() {
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+  return fetch('https://catfact.ninja/fact')
+}
+const factResponse = await getRandomFact();
+const factData = await factResponse.json();
+---
+<p>{factData.fact}</p>

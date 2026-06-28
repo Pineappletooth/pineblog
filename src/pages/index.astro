@@ -1,17 +1,172 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+import { getCollection } from 'astro:content';
 
+const pageTitle = "Home";
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+  .subtitle {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .intro-tagline {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+  }
+
+  .side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+
+  }
+
+  .side-by-side > div {
+    min-width: 0;
+  }
+
+  .side-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .side-divider::before,
+  .side-divider::after {
+    content: "";
+    flex: 1;
+    width: 1px;
+    background: var(--secondary);
+  }
+
+  .side-divider .glyph-v { color: var(--secondary); font-size: 1.2rem; padding: 0.4em 0; }
+  .side-divider .glyph-h { display: none; }
+
+  ul.post-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .now-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .now-label {
+    color: var(--secondary);
+  }
+
+  ul.tag-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.tag-list li {
+    display: inline;
+    margin-right: 0.3rem;
+  }
+
+  ul.tag-list a {
+    color: var(--pink);
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+
+  ul.tag-list a:hover {
+    color: var(--accent);
+  }
+
+  .now-divider {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  .side-divider .glyph-h { display: none; }
+
+
+  @media (max-width: 480px) {
+    .side-by-side {
+      grid-template-columns: 1fr;
+    }
+
+    .side-divider {
+      flex-direction: row;
+      width: 100%;
+      height: auto;
+    }
+
+    .side-divider::before,
+    .side-divider::after {
+      flex: 1;
+      width: auto;
+      height: auto;
+      background: none;
+      border-top: 1px solid var(--secondary);
+    }
+
+    .side-divider .glyph-v { display: none; }
+    .side-divider .glyph-h {
+      display: inline;
+      color: var(--secondary);
+      font-size: 1.6rem;
+      padding: 0 0.8em;
+      background: var(--bg);
+      white-space: nowrap;
+      line-height: 1;
+    }
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="side-by-side">
+    <div>
+      <p class="subtitle">** Me **</p>
+      <p class="intro-tagline">This is my personal space where i share my thoughts on programming, technology, and other interests.</p>
+      <a href="/about/">[ about me ]</a>
+    </div>
+    <div class="side-divider">
+      <span class="glyph-v">⋆</span>
+      <span class="glyph-h">𓂃✦｡⋆</span>
+    </div>
+    <div>
+      <p class="subtitle">** Now **</p>
+      <div class="now-list">
+        <span class="now-label">Playing:</span><span>* Mewgenics</span>
+        <span></span><span>* Genshin Impact</span>
+        <span class="now-divider"></span><span></span>
+        <span class="now-label">Listening:</span><span>* 回層浮 (Kaisou) - MyGO!!!!!</span>
+        <span></span><span>* Connect - Claris</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <p class="subtitle">** Blog **</p>
+  <ul class="post-list">
+    {recentPosts.map((post: any) => (
+      <BlogPost
+        url={`/blog/${post.id}/`}
+        title={post.data.title}
+        pubDate={post.data.pubDate}
+        tags={post.data.tags}
+      />
+    ))}
+  </ul>
+
+</BaseLayout>
