@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    container_name: blog
+    container_name: pineblog
     expose:
       - "80"
     restart: unless-stopped
