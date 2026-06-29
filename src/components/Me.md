@@ -7,8 +7,6 @@ Open source advocate but lost in the corporate world as a Java full stack develo
 
 My dream is to become a game developer and to release my indie game, unfortunately most projects that i started ended up abandoned.
 
-I always keep an eye to the Godot engine, although not perfect in any way it has enormous potential i really hope for it to keep growing.
-
 Find my (unfinished) projects on [my github](https://www.github.com/pineappletooth)
 
 ## Hobbies
@@ -16,7 +14,6 @@ Find my (unfinished) projects on [my github](https://www.github.com/pineappletoo
  - Boardgames
  - Programming
  - Going to eat
-
 
 ## Media you should absolutely watch
  - Full metal alchemist brotherhood (anime)
@@ -28,5 +25,17 @@ Find my (unfinished) projects on [my github](https://www.github.com/pineappletoo
 ## Indie games i Recommend
  - The binding of Issac
  - Factorio
- - Hollow Knight
  - Terraria
+ - Rimworld
+ - Mewgenics
+
+## Open source projects that i keep an eye
+The best way to contribute to open source is to use open source this is the list of projects i always check.
+
+- Neovim (and its ecosystem) ★
+- Godot engine ★
+- Zig lang
+- VueJs
+- Astro
+
+<sub>★ Means that i regularly check it's news, community and github</sub>

@@ -35,25 +35,24 @@
     flex-wrap: wrap;
   }
 
-  .nav-links li::before {
-    margin-left: 0.4rem;
+  .nav-links a::before {
     content: " · ";
     color: var(--muted);
   }
 
-  .nav-links li:first-child::before {
+  .nav-links a:first-child::before {
     content: "[ ";
     color: var(--muted);
   }
 
-  .nav-links li:last-child::after {
+  .nav-links a:last-child::after {
     content: " ]";
     color: var(--muted);
   }
 
   .nav-links a {
     color: var(--link);
-    font-size: 0.85rem;
+    font-size: 1rem;
     text-decoration: none;
   }
 
@@ -65,11 +64,11 @@
 
 <nav class="site-header">
   <a href="/" class="site-name">** Pineappletooth **</a>
-  <ul class="nav-links">
-    <li><a href="/">home</a></li>
-    <li><a href="/blog/">blog</a></li>
-    <li><a href="/about/">about</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="/">home</a>
+    <a href="/blog/">blog</a>
+    <a href="/about/">about</a>
+  </div>
 </nav>
 <hr>
 
