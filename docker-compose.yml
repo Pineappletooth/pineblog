@@ -1,6 +1,13 @@
 services:
   web:
     build: .
-    ports:
-      - "8080:80"
+    container_name: blog
+    expose:
+      - "80"
     restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
