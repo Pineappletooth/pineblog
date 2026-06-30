@@ -13,6 +13,6 @@ My inspirations were the neocities.org vibes and the Oxocarbon colorscheme (whic
 
 After that I don't have much design skills I so just iterated colors and some ideas until i found something i was satisfied.
 
-## On AI usage
+## On Gen AI usage
 
-I am on favor of responsible AI use, i found it practical for finding fitting colors (thats how i adapt my colorschemes) for asking some questions or debugging, but I don't think creative work like drawing, UI design or writing should be done by a machine, after all creativity is what differentiate humans from other species.
+I am on favor of responsible Gen AI use, i found it practical for finding fitting colors (thats how i adapt my colorschemes) for asking some questions or debugging, but I don't think creative work like drawing, UI design or writing should be done by a machine, after all creativity is what differentiate humans from other species.

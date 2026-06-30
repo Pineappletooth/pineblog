@@ -31,6 +31,7 @@ const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
     grid-template-columns: 1fr 1px 1fr;
     gap: 1.5rem;
     margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 
   }
 
@@ -97,6 +98,10 @@ const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
     margin: 0.5rem;
   }
 
+  .now-section {
+    margin-bottom: 1rem;
+  }
+
   .side-divider .glyph-h { display: none; }
 
 
@@ -123,12 +128,6 @@ const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
     .side-divider .glyph-v { display: none; }
     .side-divider .glyph-h {
       display: inline;
-      color: var(--secondary);
-      font-size: 1.6rem;
-      padding: 0 0.8em;
-      background: var(--bg);
-      white-space: nowrap;
-      line-height: 1;
     }
   }
 </style>
@@ -142,7 +141,7 @@ const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
     </div>
     <div class="side-divider">
       <span class="glyph-v">⋆</span>
-      <span class="glyph-h">𓂃✦｡⋆</span>
+      <hr class="glyph-h" />
     </div>
     <div>
       <p class="subtitle">** Now **</p>
