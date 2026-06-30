@@ -35,40 +35,56 @@
     flex-wrap: wrap;
   }
 
-  .nav-links a::before {
-    content: " · ";
+  .link-wrapper::before {
+    margin-left: 0.5rem;
+    content: "·";
     color: var(--muted);
   }
 
-  .nav-links a:first-child::before {
+  .link-wrapper:first-child::before {
+    margin-left: 0rem;
     content: "[ ";
     color: var(--muted);
   }
 
-  .nav-links a:last-child::after {
+  .link-wrapper:last-child::after {
     content: " ]";
     color: var(--muted);
   }
 
-  .nav-links a {
+  .link-wrapper {
     color: var(--link);
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
   }
 
-  .nav-links a:hover {
+  .link-wrapper a:hover {
     color: var(--accent);
     text-decoration: underline;
+  }
+
+  @media (max-width: 550px) {
+    .site-name {
+      font-size: 1.2rem;
+    }
+    .link-wrapper {
+      font-size: 1.1rem;
+    }
   }
 </style>
 
 <nav class="site-header">
   <a href="/" class="site-name">** Pineappletooth **</a>
   <div class="nav-links">
-    <a href="/">home</a>
-    <a href="/blog/">blog</a>
-    <a href="/about/">about</a>
+    <div class="link-wrapper">
+      <a href="/">home</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="/blog/">blog</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="/about/">about</a>
+    </div>
   </div>
 </nav>
-<hr>
-
+<hr />
