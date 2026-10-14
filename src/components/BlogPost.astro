@@ -5,7 +5,7 @@ const dateStr = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
 <style>
   .post-item {
     padding: 0.3rem 0;
-    border-bottom: 1px dotted var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
   .post-item:last-child {
@@ -13,14 +13,18 @@ const dateStr = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
   }
 
   .post-date {
-    color: var(--text);
+    color: var(--muted);
     font-size: 0.8rem;
-    margin-right: 0.6rem;
+    display: block;
+    margin-bottom: 0.2rem;
   }
 
   .post-title {
-    color: var(--link);
-    font-size: 0.9rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+    text-decoration: none;
   }
 
   .post-title:hover {
@@ -28,19 +32,14 @@ const dateStr = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : '';
   }
 
   .post-tags {
-    display: inline;
     list-style: none;
-    padding: 0;
-    margin-left: 0.5rem;
-  }
-
-  .post-tags li {
-    display: inline;
-    margin-bottom: 0;
+    display: inline-flex;
+    gap: 0.5rem;
+    margin-left: 0.7rem;
   }
 
   .post-tags a {
-    color: var(--pink);
+    color: var(--secondary);
     font-size: 0.75rem;
     text-decoration: none;
   }

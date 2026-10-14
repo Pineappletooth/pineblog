@@ -6,16 +6,22 @@ const dateStr = data.pubDate ? new Date(data.pubDate).toISOString().slice(0, 10)
 
 <style>
   .back-link {
-    color: var(--link);
+    color: var(--muted);
     font-size: 0.8rem;
     display: inline-block;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
     margin-right: 1.2rem;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
   }
 
   .post-meta {
     font-size: 0.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.2rem;
+    color: var(--muted);
   }
 
   .post-tags {
@@ -29,7 +35,7 @@ const dateStr = data.pubDate ? new Date(data.pubDate).toISOString().slice(0, 10)
   }
 
   .post-tags a {
-    color: var(--pink);
+    color: var(--secondary);
     text-decoration: none;
     font-size: 0.8rem;
   }

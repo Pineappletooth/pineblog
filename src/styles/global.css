@@ -1,14 +1,15 @@
 :root {
   --bg: #0e0e10;
-  --surface: #1a1520;
-  --border: #3d3354;
-  --text: #f0e6f0;
-  --muted: #9a8aaa;
-  --accent: #a8d8b0;
-  --secondary: #e0b8f0;
-  --link: #c8b8e8;
-  --link-visited: #a898c8;
-  --pink: #f4a0c0;
+  --surface: #1a1115;
+  --border: #453039;
+  --text: #f7f3f5;
+  --muted: #9a8b91;
+  --accent: #dd5c8d;
+  --accent-soft: #e78aac;
+  --secondary: #4fb8ac;
+
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 *,
@@ -22,132 +23,113 @@
 html {
   background-color: var(--bg);
   color: var(--text);
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.6;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 740px;
-  padding: 1rem;
+  max-width: 760px;
+  padding: 1.5rem 1.5rem 4rem;
 }
 
 h1 {
-  font-family: monospace;
-  font-size: 1.3rem;
-  color: var(--accent);
-  padding-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 2rem;
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-family: monospace;
-  font-size: 1rem;
-  color: var(--secondary);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
 }
 
 h3,
 h4 {
-  font-family: monospace;
-  font-size: 0.95rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--muted);
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
 }
 
 a {
-  color: var(--link);
+  color: var(--accent-soft);
   text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
 }
 
 a:visited {
-  color: var(--link-visited);
+  color: var(--muted);
 }
 
 a:hover {
   color: var(--accent);
+  text-decoration-color: currentColor;
 }
 
 p {
   color: var(--text);
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.1rem;
 }
 
 hr {
   border: none;
-  border-top: 1px solid var(--secondary);
-  margin: 1rem 0;
-  position: relative;
-  text-align: center;
-  overflow: visible;
-}
-
-hr::before {
-  content: "✧^>⩊<^✧";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--bg);
-  padding: 0 0.4em;
-  color: var(--secondary);
-  font-size: 1.1rem;
-  letter-spacing: 0.3rem;
-  white-space: nowrap;
-  line-height: 1;
-  font-variant-ligatures: none;
-  font-family: "Segoe UI", "Noto Sans", sans-serif;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
 }
 
 code {
-  font-family: monospace;
+  font-family: var(--font-mono);
   background: var(--surface);
   color: var(--accent);
   padding: 0.1em 0.3em;
-  border: 1px solid var(--border);
+  border-radius: 3px;
   font-size: 0.9em;
 }
 
 pre {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 0.8rem;
+  border-radius: 6px;
+  padding: 1rem;
   overflow-x: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 pre code {
   background: none;
-  border: none;
   padding: 0;
 }
 
 ul,
 ol {
-  padding-left: 1.5rem;
-  margin-bottom: 0.8rem;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 li {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 /* prose (blog post body) */
 .prose {
-  line-height: 1.8;
-}
-
-.prose h2 {
-  color: var(--secondary);
-  padding-bottom: 0.2rem;
+  line-height: 1.85;
 }
 
 .prose p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
   text-align: justify;
 }
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
+import Ascii from '../components/Ascii.astro';
 import { getCollection } from 'astro:content';
 
 const pageTitle = "Pineappletooth personal space";
@@ -8,63 +9,36 @@ const allPosts = await getCollection('blog');
 const recentPosts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5);
-
-const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
 ---
 
 <style>
-  .subtitle {
-    color: var(--accent);
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .intro-tagline {
-    color: var(--text);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    text-align: justify;
-  }
-
-  .side-by-side {
+  .split {
     display: grid;
     grid-template-columns: 1fr 1px 1fr;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
   }
 
-  .side-by-side > div {
-    min-width: 0;
+  .split-divider {
+    background: var(--border);
   }
 
-  .side-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .split-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
   }
 
-  .side-divider::before,
-  .side-divider::after {
-    content: "";
-    flex: 1;
-    width: 1px;
-    background: var(--secondary);
-  }
-
-  .side-divider .glyph-v { color: var(--secondary); font-size: 1.2rem; padding: 0.4em 0; }
-  .side-divider .glyph-h { display: none; }
-
-  ul.post-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .now-list {
+  .now-grid {
     display: grid;
     grid-template-columns: max-content 1fr;
-    gap: 0 0.5rem;
+    gap: 0.3rem 0.7rem;
     font-size: 0.85rem;
   }
 
@@ -72,99 +46,61 @@ const allTags = [...new Set(allPosts.flatMap(p => p.data.tags))];
     color: var(--secondary);
   }
 
-  ul.tag-list {
+  .blog-section {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  ul.post-list {
     list-style: none;
     padding: 0;
   }
 
-  ul.tag-list li {
-    display: inline;
-    margin-right: 0.3rem;
-  }
-
-  ul.tag-list a {
-    color: var(--pink);
-    font-size: 0.8rem;
-    text-decoration: none;
-  }
-
-  ul.tag-list a:hover {
-    color: var(--accent);
-  }
-
-  .now-divider {
-    display: inline-block;
-    margin: 0.5rem;
-  }
-
-  .now-section {
-    margin-bottom: 1rem;
-  }
-
-  .side-divider .glyph-h { display: none; }
-
-
-  @media (max-width: 480px) {
-    .side-by-side {
+  @media (max-width: 560px) {
+    .split {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .side-divider {
-      flex-direction: row;
-      width: 100%;
-      height: auto;
-    }
-
-    .side-divider::before,
-    .side-divider::after {
-      flex: 1;
-      width: auto;
-      height: auto;
-      background: none;
-      border-top: 1px solid var(--secondary);
-    }
-
-    .side-divider .glyph-v { display: none; }
-    .side-divider .glyph-h {
-      display: inline;
+    .split-divider {
+      display: none;
     }
   }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="side-by-side">
+  <section class="split">
     <div>
-      <p class="subtitle">** Me **</p>
-      <p class="intro-tagline">This is my personal space where i share my thoughts on programming, technology, and other interests.</p>
-      <a href="/about/">[ about me ]</a>
+      <p class="split-label">Me</p>
+      <p>This is my personal space where i share my thoughts on programming, technology, and other interests.</p>
+      <a href="/about/">about me →</a>
     </div>
-    <div class="side-divider">
-      <span class="glyph-v">⋆</span>
-      <hr class="glyph-h" />
-    </div>
+    <div class="split-divider"></div>
     <div>
-      <p class="subtitle">** Now **</p>
-      <div class="now-list">
-        <span class="now-label">Playing:</span><span>* Mewgenics</span>
-        <span></span><span>* Genshin Impact</span>
-        <span class="now-divider"></span><span></span>
-        <span class="now-label">Listening:</span><span>* 回層浮 (Kaisou) - MyGO!!!!!</span>
-        <span></span><span>* Connect - Claris</span>
+      <p class="split-label">Now</p>
+      <div class="now-grid">
+        <span class="now-label">Playing</span><span>Mewgenics</span>
+        <span></span><span>Genshin Impact</span>
+        <span class="now-label">Listening</span><span>詩超絆 (Utakotoba) - MyGO!!!!!</span>
+        <span></span><span>Connect - Claris</span>
       </div>
     </div>
-  </div>
-  <hr />
+  </section>
 
-  <p class="subtitle">** Blog **</p>
-  <ul class="post-list">
-    {recentPosts.map((post: any) => (
-      <BlogPost
-        url={`/blog/${post.id}/`}
-        title={post.data.title}
-        pubDate={post.data.pubDate}
-        tags={post.data.tags}
-      />
-    ))}
-  </ul>
+  <section class="blog-section">
+    <p class="split-label">Blog</p>
+    <ul class="post-list">
+      {recentPosts.map((post: any) => (
+        <BlogPost
+          url={`/blog/${post.id}/`}
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+  </section>
 
+  <Ascii />
 </BaseLayout>

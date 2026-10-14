@@ -7,7 +7,7 @@ const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate
 ---
 
 <BaseLayout pageTitle="Blog">
-  <h1>✦ Blog</h1>
+  <h1>Blog</h1>
   <ul style="list-style:none;padding:0">
     {sorted.map((post: any) => (
       <BlogPost
