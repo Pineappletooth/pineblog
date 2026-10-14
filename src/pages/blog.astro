@@ -6,8 +6,31 @@ const allPosts = await getCollection('blog');
 const sorted = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
+<style>
+  .blog-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tags-link {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    text-decoration: none;
+  }
+
+  .tags-link:hover {
+    color: var(--accent);
+  }
+</style>
+
 <BaseLayout pageTitle="Blog">
-  <h1>Blog</h1>
+  <div class="blog-header">
+    <h1>Blog</h1>
+    <a href="/tags/" class="tags-link">tags →</a>
+  </div>
   <ul style="list-style:none;padding:0">
     {sorted.map((post: any) => (
       <BlogPost

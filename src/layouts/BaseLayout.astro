@@ -8,9 +8,10 @@ const { pageTitle } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="alternate" type="application/rss+xml" title="Pineblog" href="/rss.xml" />
     <title>{pageTitle}</title>
   </head>
   <body>

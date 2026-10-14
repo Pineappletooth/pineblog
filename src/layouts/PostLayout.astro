@@ -5,12 +5,15 @@ const dateStr = data.pubDate ? new Date(data.pubDate).toISOString().slice(0, 10)
 ---
 
 <style>
-  .back-link {
-    color: var(--muted);
-    font-size: 0.8rem;
-    display: inline-block;
+  .post-nav {
+    display: flex;
+    gap: 1.2rem;
     margin-bottom: 1.8rem;
-    margin-right: 1.2rem;
+  }
+
+  .back-link {
+    color: var(--secondary);
+    font-size: 0.8rem;
     text-decoration: none;
   }
 
@@ -47,10 +50,10 @@ const dateStr = data.pubDate ? new Date(data.pubDate).toISOString().slice(0, 10)
 </style>
 
 <BaseLayout pageTitle={data.title}>
-  <div>
-    <a href="/blog/" class="back-link">&lt;&lt; back to blog</a>
-    <a href="/tags/" class="back-link">All tags</a>
-  </div>
+  <nav class="post-nav">
+    <a href="/blog/" class="back-link">← back to blog</a>
+    <a href="/tags/" class="back-link">tags →</a>
+  </nav>
   <h1>{data.title}</h1>
   <div class="post-meta">
     <span>{dateStr}</span>
